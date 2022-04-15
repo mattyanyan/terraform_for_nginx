@@ -2,11 +2,11 @@
 
 print_with_color () {
     if [ "$1" = "magenta" ] ; then
-        echo -e "\e[1;35m $2 \e[0m"
+        echo -e "\e[1;35m$2\e[0m"
     elif [ "$1" = "red" ] ; then
-        echo -e "\e[1;31m $2 \e[0m"
+        echo -e "\e[1;31m$2\e[0m"
     elif [ "$1" = "green" ] ; then
-        echo -e "\e[1;32m $2 \e[0m"
+        echo -e "\e[1;32m$2\e[0m"
     fi
 }
 
