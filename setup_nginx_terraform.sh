@@ -7,7 +7,7 @@ terraform init
 echo -e "\nStart applying Terraform infrasturcture...\n"
 terraform apply
 nginx_instance_dns=$(terraform output | grep nginx_instance_dns | awk -F ' = ' '{print $2}' | tr -d '\"')
-if [ -n $nginx_instance_dns ] ; then
+if [ -z "$nginx_instance_dns" ] ; then
     echo "Unable to fetch the NGINX instance DNS"
     exit 1
 fi
