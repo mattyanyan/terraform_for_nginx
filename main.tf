@@ -3,6 +3,7 @@ locals {
 }
 
 # VPC
+
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
@@ -56,6 +57,8 @@ module "nginx_instance" {
   user_data                   = var.nginx_instance_configs.user_data
   vpc_security_group_ids      = [aws_security_group.nginx_sg.id]
 }
+
+# Security group
 
 resource "aws_security_group" "nginx_sg" {
   name        = var.nginx_sg_configs.name
