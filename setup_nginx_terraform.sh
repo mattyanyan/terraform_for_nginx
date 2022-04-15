@@ -1,20 +1,19 @@
 #!/bin/bash
 
 # Review and apply the infrastucture
-echo "Initiate Terraform environment..."
+echo -e "Initiate Terraform environment...\n"
 terraform init
-echo "Start applying Terraform infrasturcture..."
+
+echo -e "\nStart applying Terraform infrasturcture...\n"
 terraform apply
 nginx_instance_dns=$(terraform output | grep nginx_instance_dns | awk -F ' = ' '{print $2}' | tr -d '\"')
 if [ -n $nginx_instance_dns ] ; then
     echo "Unable to fetch the NGINX instance DNS"
     exit 1
 fi
-echo ""
 
 # Fetch the NGINX welcome page and count word frequency
-echo "Fetching the NGINX welcome page..."
+echo -e "\nFetching the NGINX welcome page...\n"
 curl -s $nginx_instance_dns | xmlstarlet sel -t -v "//body"
-echo ""
-echo "Counting the word frequency of the welcome page..."
+echo -e "\nCounting the word frequency of the welcome page...\n"
 curl -s $nginx_instance_dns | xmlstarlet sel -t -v "//body" | tr '[:punct:]' ' ' | tr ' ' '\n' | awk 'NF' | sort | uniq -c
