@@ -1,5 +1,19 @@
+# Add time sleep before fetching the welcome page
+# Ensure the server is provisioned
+resource "time_sleep" "wait_5_minutes" {
+    depends_on = [
+        module.nginx_instance, aws_security_group.nginx_sg
+    ]
+
+    create_duration = "5m"
+}
+
 data "http" "website_content" {
   url = "http://${module.nginx_instance.public_dns}"
+
+  depends_on = [
+    time_sleep.wait_5_minutes
+  ]
 }
 
 output "nginx_instance_dns" {
