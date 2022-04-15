@@ -1,5 +1,5 @@
 locals {
-  default_tag = { Terraform = "true", Product = "WeLendNGINX", Creator = "MatthewLam" }
+  default_tag = { Terraform = "true" }
 }
 
 # VPC

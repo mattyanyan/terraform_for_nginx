@@ -1,5 +1,5 @@
 vpc_configs = {
-  name = "welend-vpc",
+  name = "example-vpc",
   cidr = "10.0.0.0/16",
   azs = [
     "ap-east-1a",

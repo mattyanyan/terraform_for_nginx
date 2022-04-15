@@ -1,8 +1,8 @@
 nginx_instance_configs = {
-  name                        = "welend-nginx-instance",
+  name                        = "example-nginx-instance",
   associate_public_ip_address = true,
   instance_type               = "t3.micro",
-  key_name                    = "WeLendKeyPair",
+  key_name                    = "ExampleKeyPair",
   user_data                   = <<EOF
 #!/bin/bash
 yum update -y
