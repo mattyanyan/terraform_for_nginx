@@ -41,7 +41,6 @@ data "aws_ami" "amazon_linux_2" {
   owners = ["910595266909"]
 }
 
-
 module "nginx_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 3.0"
