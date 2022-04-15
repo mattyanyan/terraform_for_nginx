@@ -50,7 +50,7 @@ A docker hub account is required. It is used to pull the offcial NGINX docker im
 
 ### vpc_configs.auto.tfvars
 
-```json
+```bash
 vpc_configs = {
   name = "example-vpc",                  <- VPC name: string
   cidr = "10.0.0.0/16",                  <- CIDR block: string
@@ -75,7 +75,7 @@ vpc_configs = {
 
 ### nginx_instance_configs.auto.tfvars
 
-```json
+```bash
 nginx_instance_configs = {
   name                        = "example-nginx-instance",  <- Instance name: string
   associate_public_ip_address = true,                      <- Associate public IP address: boolean
@@ -99,7 +99,7 @@ EOF
 
 ### nginx_sg_configs.auto.tfvars
 
-```json
+```bash
 nginx_sg_configs = {
   name        = "nginx_sg",                                   <- SG name: string
   description = "The security group for the NGINX instance.", <- SG description: string
